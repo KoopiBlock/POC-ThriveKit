@@ -1,0 +1,19 @@
+.half-gradient-border {
+    position: relative;
+    background: #f2f2f2;
+    border-radius: 6px;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+  }
+  
+  .half-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    z-index: -1;
+    border-radius: 6px;
+    background: linear-gradient(to right, rgb(251, 191, 36) 50%, transparent 100%);
+  }

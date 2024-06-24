@@ -1,113 +1,213 @@
-import Image from "next/image";
 
-export default function Home() {
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+import Image from "next/image"
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer"
+
+const bgImage = '/img/golds.jpg'
+
+
+import { Badge } from "@/components/ui/badge"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { Progress } from "@/components/ui/progress"
+
+import RewardsCard from "@/components/Cards/RewardsCard"
+import Link from "next/link"
+import { useState } from "react"
+import MainCard from "@/components/Cards/MainCard"
+import GiftCard from "@/components/Cards/GiftCard"
+import CoinsBtn from "@/components/Cards/CoinsBtn"
+
+
+interface Recipe {
+  Title: string,
+  image: string,
+  time: number,
+  desc: string,
+  vegan: boolean,
+  id: string
+}
+
+import { FaCrown } from "react-icons/fa";
+
+async function getRecipes(): Promise<Recipe[]>  {
+  const result = await fetch('http://localhost:5000/recipes')
+
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+
+  return result.json()
+}
+
+ 
+export default async function Home() {
+
+  const recpies = await getRecipes()
+
+  
+
+const rewardsCards = [
+      {
+        id: 0,
+        image: '/img/milka.webp',
+        desc: 'קופון הנחה למילקה' ,
+        price: '69',
+        available: 'redeem',
+    },
+    {
+        id: 1,
+        image: '/img/cocacolas.jpg',
+        desc: '20% הנחה לשישית קולה' ,
+        price: '100',
+        available: 'inProgress',
+    },
+    {
+        id: 2,
+        image: '/img/jackies.jpg',
+        desc: '69% הנחה על גק דניאלס' ,
+        price: '420',
+        available: 'inProgress',
+    },
+    {
+      id: 3,
+      image: '/img/cigs.jpg',
+      desc: ' קופסת סיגריות חינם ' ,
+      price: '300',
+      available: 'inProgress',
+    },
+]
+
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main >
+      <div className="mx-5">
+          <div className="text-right mx-1 my-3">
+            <h1> כיף שחזרת אלינו דניאל </h1>
+          </div>
+          <Card  className="flex flex-col justify-between ">
+            <CardHeader className="flex-row gap-4  items-center">
+              <Avatar className=" w-20 h-20">
+                <AvatarImage src={`/img/pfp.webp`} alt="recipe img" />
+                <AvatarFallback>
+                card 1
+                </AvatarFallback>
+              </Avatar>
+              <div className="text-left">
+                <div className="flex flex-row">
+                  <CardTitle>דרגת זהב </CardTitle>
+                < FaCrown className="text-amber-400 text-2xl ml-3"/>
+                </div>
+                <CardDescription>69 / 100 :לדרגה באה</CardDescription>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <Progress value={69} />
+            </CardContent>
+            <CardFooter className="flex justify-around">
+              <div className="flex flex-col justify-center items-center">
+                <CoinsBtn />
+              </div>
+              <Link href='/pages/MyCoupons'>
+                <div className="flex flex-col justify-center items-center">
+                  
+                <div className="m-auto">
+                      <Image
+                          src="/img/coupon.webp"
+                          width={40}
+                          height={40}
+                          alt="Picture of the author"
+                      />
+                  </div>
+                  
+                  <p>הקופונים שלי</p>
+                
+                </div>
+              </Link>
+            </CardFooter>
+          </Card>
+      </div>
+
+      <GiftCard />
+
+      <div>
+        <div className=" flex flex-row-reverse justify-between text-right mx-5">
+          <h1 className="text-right">הטבות</h1>
+          <Link href='/pages/AllRewards'><p className="text-right">{`<`} לכל ההטבות </p></Link>
         </div>
-      </div>
+      
+          <Carousel className="w-full max-w-[420px] mx-2 my-3" 
+            opts={{
+              align: "end",
+              
+            }}
+          >
+            <CarouselContent>
+              {rewardsCards.map((card) => (
+                <RewardsCard
+                  available={card.available}
+                  id={card.id}
+                  image={card.image}
+                  desc={card.desc}
+                  price={card.price}
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+                />
+              ))}
+            </CarouselContent>
+          
+          </Carousel>
+        </div>
+        <div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <div className="text-right mx-5">
+            <h1>מבצעים</h1>
+          </div>
+          
+          <div className="grid grid-cols-2 gap-3 m-5">
+            <Link href='/pages/RefferalPage'>
+              <MainCard />
+            </Link>
+            <div>
+        
+            <Card  className="flex flex-col justify-between  h-[12em] " style={{ backgroundImage: `url(${bgImage})`, backgroundSize: 'cover' }}>
+                <Link href='/pages/Settings'>
+                  <CardContent className='w-full p-2 text-right font-extrabold '>
+                      <div>
+                          <CardTitle className='text-black'>אתגרים שווים</CardTitle>
+                      </div>
+                      <div className='w-[100%] h-[100px]  rounded-s ' />
+                  </CardContent>
+                </Link>
+            </Card>
+          </div>
+          </div>
+          
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+        </div>
     </main>
   );
 }
