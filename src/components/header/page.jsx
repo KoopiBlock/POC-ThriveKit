@@ -12,11 +12,11 @@ import { Badge } from "@/components/ui/badge"
 
 export default function Home() {
 
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, SetIsActive] = useState(false);
   const pathname = usePathname();
 
   useEffect( () => {
-    if(isActive) setIsActive(false)
+    if(isActive) SetIsActive(false)
   }, [pathname])
 
   return (

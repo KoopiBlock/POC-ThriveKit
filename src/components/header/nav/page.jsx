@@ -33,12 +33,12 @@ const navItems = [
 export default function index() {
 
   const pathname = usePathname();
-  const [selectedIndicator, setSelectedIndicator] = useState(pathname);
+  const [selectedIndicator, SetSelectedIndicator] = useState(pathname);
 
   return (
     <motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className={styles.menu}>
        <div className={styles.body}>
-            <div onMouseLeave={() => {setSelectedIndicator(pathname)}} className={styles.nav}>           
+            <div onMouseLeave={() => {SetSelectedIndicator(pathname)}} className={styles.nav}>           
                     {
                       navItems.map( (data, index) => {
                         return <Link key={index} data={{...data, index}} isActive={selectedIndicator == data.href} setSelectedIndicator={setSelectedIndicator}></Link>
