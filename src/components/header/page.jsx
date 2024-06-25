@@ -3,7 +3,7 @@ import styles from './style.module.css'
 import { useEffect, useState } from 'react';
 import Nav from './nav/page';
 import { AnimatePresence } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { UsePathname } from 'next/navigation'; 
 import Link from 'next/link';
 
 import { FaBell } from "react-icons/fa";
@@ -13,7 +13,7 @@ import { Badge } from "@/components/ui/badge"
 export default function Home() {
 
   const [isActive, SetIsActive] = useState(false);
-  const pathname = usePathname();
+  const pathname = UsePathname();
 
   useEffect( () => {
     if(isActive) SetIsActive(false)

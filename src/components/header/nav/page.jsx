@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './style.module.css';
 import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
+import { UsePathname } from 'next/navigation';
 import { menuSlide } from '../anim';
 import Link from './Link';
 import Curve from './Curve';
@@ -32,7 +32,7 @@ const navItems = [
 
 export default function index() {
 
-  const pathname = usePathname();
+  const pathname = UsePathname();
   const [selectedIndicator, SetSelectedIndicator] = useState(pathname);
 
   return (
