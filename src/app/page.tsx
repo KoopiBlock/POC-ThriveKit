@@ -167,8 +167,9 @@ const rewardsCards = [
             }}
           >
             <CarouselContent>
-              {rewardsCards.map((card) => (
+              {rewardsCards.map((card, i) => (
                 <RewardsCard
+                  key={i}
                   available={card.available}
                   id={card.id}
                   image={card.image}

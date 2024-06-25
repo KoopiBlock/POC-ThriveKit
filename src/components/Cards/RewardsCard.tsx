@@ -175,7 +175,7 @@ const RewardsCard = ({ available, image, id, desc, price }:RewardsCardProps) => 
                   <RiCopperCoinFill className='text-amber-400 pr-2 text-3xl' />
                   </div>
                 </div>
-                <div className='text-right text-3xl mt-1 min-h-[2em]'>
+                <div className='text-right text-3xl mt-1 min-h-[3em]'>
                   <CardTitle className='text-right text-lg'>{desc} </CardTitle>
                 </div>
                 

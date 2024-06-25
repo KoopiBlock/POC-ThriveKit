@@ -164,8 +164,9 @@ const bgImage = '/img/chars.png'
               <Link href='/pages/AllRewards'><p className="text-right">{`<`} להכל</p></Link>
             </div>
             <CarouselContent>
-              {rewardsCards.map((card) => (
+              {rewardsCards.map((card, i) => (
                 <RewardsCard
+                  key={i}
                   available={'inProgress'}
                   id={card.id}
                   image={card.image}
