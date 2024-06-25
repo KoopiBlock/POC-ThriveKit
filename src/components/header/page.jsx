@@ -1,6 +1,6 @@
 'use client'
 import styles from './style.module.css'
-import { useEffect, useState } from 'react';
+import { useEffect, UseState } from 'react';
 import Nav from './nav/page';
 import { AnimatePresence } from 'framer-motion';
 import { UsePathname } from 'next/navigation'; 
@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 
 export default function Home() {
 
-  const [isActive, SetIsActive] = useState(false);
+  const [isActive, SetIsActive] = UseState(false);
   const pathname = UsePathname();
 
   useEffect( () => {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { UseState } from 'react'
 import styles from './style.module.css';
 import { motion } from 'framer-motion';
 import { UsePathname } from 'next/navigation';
@@ -33,7 +33,7 @@ const navItems = [
 export default function index() {
 
   const pathname = UsePathname();
-  const [selectedIndicator, SetSelectedIndicator] = useState(pathname);
+  const [selectedIndicator, SetSelectedIndicator] = UseState(pathname);
 
   return (
     <motion.div variants={menuSlide} initial="initial" animate="enter" exit="exit" className={styles.menu}>
