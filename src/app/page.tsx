@@ -45,31 +45,13 @@ import GiftCard from "@/components/Cards/GiftCard"
 import CoinsBtn from "@/components/Cards/CoinsBtn"
 
 
-interface Recipe {
-  Title: string,
-  image: string,
-  time: number,
-  desc: string,
-  vegan: boolean,
-  id: string
-}
-
 import { FaCrown } from "react-icons/fa";
 
-async function getRecipes(): Promise<Recipe[]>  {
-  const result = await fetch('http://localhost:5000/recipes')
-
-  await new Promise((resolve) => setTimeout(resolve, 3000))
-
-  return result.json()
-}
 
  
 export default async function Home() {
 
-  const recpies = await getRecipes()
 
-  
 
 const rewardsCards = [
       {

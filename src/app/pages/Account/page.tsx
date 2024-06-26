@@ -66,7 +66,7 @@ const Account = () => {
     price: '300',
     available: 'inProgress',
   },
-]
+];
 
 
 const bgImage = '/img/chars.png'
