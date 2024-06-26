@@ -1,3 +1,5 @@
+'use client'
+
 import React, { UseState } from 'react'
 import styles from './style.module.css';
 import { motion } from 'framer-motion';
