@@ -92,9 +92,9 @@ const RewardsCard = ({ available, image, desc, price }:RewardsCardProps) => {
       setRedeem(prevState => !prevState)
 
     } else {
-      setAvail(prevState => !prevState);
-      setInProgress(prevState => !prevState);
-      setRedeem(prevState => !prevState)
+      setAvail(false);
+      setInProgress(false);
+      setRedeem(false)
 
     }
   }, [available]);
