@@ -167,7 +167,7 @@ const bgImage = '/img/chars.png'
                 <RewardsCard
                   key={i}
                   available={'inProgress'}
-                  id={card.id}
+                 
                   image={card.image}
                   desc={card.desc}
                   price={card.price}
