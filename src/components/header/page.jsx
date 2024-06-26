@@ -1,4 +1,5 @@
 'use client'
+/* eslint-disable */
 import styles from './style.module.css'
 import { useEffect, useState,  } from 'react';
 import Nav from './nav/page';
@@ -27,7 +28,7 @@ export default function Home() {
        <Badge variant="outline" className='text-xl font-black pl-3 '>69 <RiCopperCoinFill className='text-amber-400 pl-3 text-4xl' /></Badge>
       </div>
       <div className={styles.header}>
-        <div onClick={() => {setIsActive(!isActive)}} className={styles.button}>
+        <div onClick={() => {SetIsActive(!isActive)}} className={styles.button}>
           <div className={`${styles.burger} ${isActive ? styles.burgerActive : ""}`}></div>
         </div>
     </div>
