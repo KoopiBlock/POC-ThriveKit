@@ -1,4 +1,4 @@
-
+/* eslint-disable */
 import SkeletonCard from "@/components/ui/SkeletonCard"
 
 export default function loading() {
