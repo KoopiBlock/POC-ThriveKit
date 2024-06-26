@@ -73,28 +73,28 @@ export default async function Home() {
 
 const rewardsCards = [
       {
-        id: 0,
+        
         image: '/img/milka.webp',
         desc: 'קופון הנחה למילקה' ,
         price: '69',
         available: 'redeem',
     },
     {
-        id: 1,
+        
         image: '/img/cocacolas.jpg',
         desc: '20% הנחה לשישית קולה' ,
         price: '100',
         available: 'inProgress',
     },
     {
-        id: 2,
+        
         image: '/img/jackies.jpg',
         desc: '69% הנחה על גק דניאלס' ,
         price: '420',
         available: 'inProgress',
     },
     {
-      id: 3,
+      
       image: '/img/cigs.jpg',
       desc: ' קופסת סיגריות חינם ' ,
       price: '300',
@@ -171,7 +171,6 @@ const rewardsCards = [
                 <RewardsCard
                   key={i}
                   available={card.available}
-                  id={card.id}
                   image={card.image}
                   desc={card.desc}
                   price={card.price}

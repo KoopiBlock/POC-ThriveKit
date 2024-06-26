@@ -37,7 +37,7 @@ import ButtonSq from './ButtonSq';
 
 type RewardsCardProps = {
   available: string;
-  id: number,
+  
   image: string,
   desc: string,
   price: string,
@@ -56,7 +56,7 @@ const randomNumberBetween = (min: number, max: number) => {
 
 type AnimationSequence = Parameters<typeof animate>[0];
 
-const RewardsCard = ({ available, image, id, desc, price }:RewardsCardProps) => {
+const RewardsCard = ({ available, image, desc, price }:RewardsCardProps) => {
 
   
   const delay = (ms: number): Promise<void> => {
