@@ -20,17 +20,17 @@ interface msgs {
 
 const msgs = [
     {
-        id: 0,
+        
         image: '/img/pfp.webp',
         desc: 'ברוך הבא למועדון של קופי סופר'
     },
     {
-        id: 1,
+        
         image: '/img/golds.jpg',
         desc: 'שתף אותנו למשפחה ולחברים ותזקו בפרסים שווים'
     },
     {
-        id: 2,
+        
         image: '/img/gift.gif',
         desc: 'קיבלת מתנה שווה! ממש אותה עכשיו'
     },
@@ -41,8 +41,8 @@ const Notifications = () => {
     
   return (
     <div className="flex flex-col" >
-        {msgs.map(msg => (
-        <Card className="flex flex-row-reverse justify-between mx-5 my-3 " key={msg.id}>
+        {msgs.map((msg, i) => (
+        <Card className="flex flex-row-reverse justify-between mx-5 my-3 " key={i}>
             <CardHeader className="flex-row gap-4  items-center">
               <Avatar className='m-auto'>
                 <AvatarImage src={msg.image} alt="recipe img" />

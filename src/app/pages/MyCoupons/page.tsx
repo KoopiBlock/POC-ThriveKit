@@ -32,17 +32,17 @@ interface rewards {
 
 const rewards = [
     {
-        id: 0,
+      
         image: '/img/milka.webp',
         desc: 'קופון הנחה למילקה'
     },
     {
-        id: 1,
+        
         image: '/img/bamba.jpg',
         desc: 'מארז במבה מתנה'
     },
     {
-        id: 2,
+        
         image: '/img/eggs.jpg',
         desc: "הנחה 10% על מארז ביצים" ,
     },
@@ -58,11 +58,11 @@ const MyCoupons = () => {
       <h1>ההטבות שלך</h1>
     </div>
       <div className="grid grid-cols-2 gap-4 m-5" >
-          {rewards.map(msg => (
+          {rewards.map((msg, i) => (
 
             <>
             <Drawer>
-              <Card  className="flex flex-col justify-between items-center " key={msg.id}>
+              <Card  className="flex flex-col justify-between items-center " key={i}>
               <CardHeader className="flex-row gap-4 ">
                 <div>
                   <CardTitle className='text-right'>{msg.desc}</CardTitle>
