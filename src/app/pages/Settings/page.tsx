@@ -30,7 +30,7 @@ const msgs = [
         image: '/img/bamba.jpg',
         desc: 'קנה 5 מארזי במבמה וקבל פרס',
         reward: '40',
-        progress: '2 / 5',
+        progress: '2/5',
         title: 'מלך המאנצים',
     },
     {
@@ -38,7 +38,7 @@ const msgs = [
         image: '/img/milka.webp',
         desc: 'קנה 10 מארזי מילקות וקבל פרס',
         reward: '100',
-        progress: '5 / 10',
+        progress: '5/10',
         title: 'אלוף השוקולד',
     },
     {
@@ -46,7 +46,7 @@ const msgs = [
         image: '/img/cigs.jpg',
         desc: ' קנה 20 סיגריות וקבל פרס',
         reward: '250',
-        progress: '9 / 20',
+        progress: '9/20',
         title: 'אלוף הסיגריות',
     },
 ]
@@ -72,8 +72,8 @@ const Settings = () => {
             <CardContent className='text-right pt-4 min-w-[70%] '>
               <div className='flex flex-col'>
                 <div className='flex flex-row-reverse justify-between'>
-                  <p className='text-2xl font-extrabold' >{msg.title}</p>
-                  <p className='font-bold text-xl text-gray-500' >{msg.progress}</p>
+                  <p className='text-2xl font-extrabold ml-1' >{msg.title}</p>
+                  <p className='font-bold text-lg text-gray-500 ' >{msg.progress}</p>
                   
                 </div>
                 <p className=' text-sm text-gray-400 ' >{msg.desc}</p>
