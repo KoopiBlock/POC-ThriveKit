@@ -58,18 +58,6 @@ type AnimationSequence = Parameters<typeof animate>[0];
 
 const RewardsCard = ({ available, image, desc, price }:RewardsCardProps) => {
 
-  
-  const delay = (ms: number): Promise<void> => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  };
-
-  const onButtonClickDelay = async () => {
-    await delay(1000); // Delay for 1000 milliseconds (1 second)
-    // Logic to open the drawer goes here
-    // Example:
-    // drawer.open();
-  };
-
 
   const [avail, setAvail] = useState(false);
   const [redeem, setRedeem] = useState(false);
@@ -77,19 +65,19 @@ const RewardsCard = ({ available, image, desc, price }:RewardsCardProps) => {
 
   useEffect(() => {
     if (available === 'redeem') {
-      setAvail(prevState => !prevState);
-      setInProgress(prevState => !prevState);
+      setAvail(false);
+      setInProgress(false);
       setRedeem(true)
 
     } else if (available === 'inProgress') {
-      setAvail(prevState => !prevState);
+      setAvail(false);
       setInProgress(true);
-      setRedeem(prevState => !prevState)
+      setRedeem(false)
 
     } else if (available === 'available') {
       setAvail(true);
-      setInProgress(prevState => !prevState);
-      setRedeem(prevState => !prevState)
+      setInProgress(false);
+      setRedeem(false)
 
     } else {
       setAvail(false);
